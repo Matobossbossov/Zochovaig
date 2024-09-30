@@ -20,7 +20,14 @@ const NavBar = () => {
 
   return (
     <BottomNavigation
-      sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }} // Fix position at the bottom
+      sx={{ 
+        position: "fixed", 
+        bottom: 0, 
+        left: 0, 
+        right: 0, 
+        bgcolor: 'background.paper', // Background color
+        boxShadow: 2 // Optional: Add shadow for elevation
+      }} 
       value={value} // Active navigation value
       onChange={handleChange} // Change handler for navigation
     >
@@ -30,6 +37,15 @@ const NavBar = () => {
         icon={<HomeIcon />} // Home icon
         component={Link} // Use Next.js Link for navigation
         href="/" // Home page link
+        sx={{
+          color: value === 'home' ? 'purple' : 'gray', // Color for active and inactive
+          '&.Mui-selected': {
+            color: 'purple', // Active icon color
+            bgcolor: 'pink', // Background color for active icon
+            borderRadius: '20px', // Adjusting radius for a softer elliptical shape
+            padding: '10px 20px', // Increase padding for elliptical effect
+          },
+        }}
       />
       <BottomNavigationAction
         label="Add"
@@ -37,6 +53,15 @@ const NavBar = () => {
         icon={<AddBoxIcon />} // Add post icon
         component={Link} // Use Next.js Link for navigation
         href="/pridat" // Add post page link
+        sx={{
+          color: value === 'add' ? 'purple' : 'gray', // Color for active and inactive
+          '&.Mui-selected': {
+            color: 'purple', // Active icon color
+            bgcolor: 'pink', // Background color for active icon
+            borderRadius: '20px', // Adjusting radius for a softer elliptical shape
+            padding: '10px 20px', // Increase padding for elliptical effect
+          },
+        }}
       />
       <BottomNavigationAction
         label="Profile"
@@ -44,6 +69,15 @@ const NavBar = () => {
         icon={<AccountCircleIcon />} // Profile icon
         component={Link} // Use Next.js Link for navigation
         href="/profil" // Profile page link
+        sx={{
+          color: value === 'profile' ? 'purple' : 'gray', // Color for active and inactive
+          '&.Mui-selected': {
+            color: 'purple', // Active icon color
+            bgcolor: 'pink', // Background color for active icon
+            borderRadius: '20px', // Adjusting radius for a softer elliptical shape
+            padding: '10px 20px', // Increase padding for elliptical effect
+          },
+        }}
       />
       <BottomNavigationAction
         label="Sign In"
@@ -51,6 +85,15 @@ const NavBar = () => {
         icon={<LoginIcon />} // Sign In icon
         component={Link} // Use Next.js Link for navigation
         href="/auth/prihlasenie" // Sign In page link
+        sx={{
+          color: value === 'sign-in' ? 'purple' : 'gray', // Color for active and inactive
+          '&.Mui-selected': {
+            color: 'purple', // Active icon color
+            bgcolor: 'pink', // Background color for active icon
+            borderRadius: '20px', // Adjusting radius for a softer elliptical shape
+            padding: '10px 20px', // Increase padding for elliptical effect
+          },
+        }}
       />
       <BottomNavigationAction
         label="Sign Up"
@@ -58,11 +101,22 @@ const NavBar = () => {
         icon={<AppRegistrationIcon />} // Sign Up icon
         component={Link} // Use Next.js Link for navigation
         href="/auth/registracia" // Sign Up page link
+        sx={{
+          color: value === 'sign-up' ? 'purple' : 'gray', // Color for active and inactive
+          '&.Mui-selected': {
+            color: 'purple', // Active icon color
+            bgcolor: 'pink', // Background color for active icon
+            borderRadius: '20px', // Adjusting radius for a softer elliptical shape
+            padding: '10px 20px', // Increase padding for elliptical effect
+          },
+        }}
       />
     </BottomNavigation>
   );
 };
 
 export default NavBar; // Export the NavBar component
+
+
 
 
