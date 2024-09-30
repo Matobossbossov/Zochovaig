@@ -1,13 +1,15 @@
+
 // src/app/page.tsx
 
-import  Typography  from "@mui/material/Typography";
+import Typography from "@mui/material/Typography";
 
-export const metadata = { title: 'Domov | ZoskaSnap' }
+export const metadata = { title: 'Domov | ZoskaSnap'}
 
 export default function Home() {
 
   return(
-    
-      <Typography> Domovska Stranka</Typography>
+
+      <Typography> Domovska stranka </Typography>
+
   );
 }
