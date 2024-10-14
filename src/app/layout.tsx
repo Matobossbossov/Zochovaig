@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from '../components/NavBar'; // Import the NavBar component
+import NavBar from '@/components/NavBar'; // Import the NavBar component
 import Head from "next/head"; // Head component for meta tags
 
 export const metadata: Metadata = {
@@ -11,19 +11,19 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode; // TypeScript type for children prop
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="sk">
-      <Head>
-        <link rel="icon" href="/favicon.ico" /> {/* Favicon */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> {/* Responsive design */}
-      </Head>
       <body>
-        <div style={{ paddingBottom: "56px", minHeight: "100vh" }}> {/* Ensure content is not hidden behind the navbar */}
-          {children} {/* Render child components */}
-          <NavBar /> {/* Add the NavBar component here */}
-        </div>
+        <AuthProvider>
+          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <main style={{ flexGrow: 1 }}>
+              {children}
+            </main>
+          </div>
+          <Navbar /> {/* Moved Navbar outside of the main container */}
+        </AuthProvider>
       </body>
     </html>
   );
