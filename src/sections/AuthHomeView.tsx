@@ -1,17 +1,24 @@
 // src/sections/AuthHomeView.tsx
 
-import Link from "next/link";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+// import Box from "@mui/material/Box";
 
-const AuthHomeView = () => {
+import { Session } from "next-auth";
+
+export default function AuthHomeView({ session }: { session: Session }) {
+
   return (
-    <div>
-      <h1>vitjate naspat</h1>
-      <p>vas kontent</p>
-      <Link href="/profil">View Your Profile</Link>
-      <br />
-      <Link href="/pridat">Add a New Post</Link>
-    </div>
-  );
-};
+    <Container>
+      <Typography> Domovská stránka - prihlásený user</Typography>
+      <Typography variant="h4" sx={{ mb: 3 }}>
+        Vitajte, {session?.user?.name || "užívateľ"}!
+      </Typography>
 
-export default AuthHomeView;
+
+      {/* <Box sx={{ mt: 2 }}>
+        <pre>{JSON.stringify(session, null, 2)}</pre>
+      </Box> */}
+    </Container>
+  );
+}

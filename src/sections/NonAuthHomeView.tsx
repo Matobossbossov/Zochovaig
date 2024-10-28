@@ -1,17 +1,16 @@
 // src/sections/NonAuthHomeView.tsx
 
-import Link from "next/link";
+import { Container, Typography } from "@mui/material";
 
-const NonAuthHomeView = () => {
+export default function NonAuthHomeView() {
   return (
-    <div>
-      <h1>vitajte na dtudentskom instagrame!</h1>
-      <p>prihlaste sa prosim.</p>
-      <Link href="/auth/prihlasenie">PRIHLASENIE</Link>
-      <br />
-      <Link href="/o-nas">NAUC SA O NAS VIAC</Link>
-    </div>
+    <Container>
+      <Typography variant="body1" sx={{ mt: 2 }}>
+        Domovská stránka - NEprihlásený user
+      </Typography>
+      <Typography>
+        Registrujte sa, aby ste mohli pridať príspevky a zobraziť profil.
+      </Typography>
+    </Container>
   );
-};
-
-export default NonAuthHomeView;
+}
